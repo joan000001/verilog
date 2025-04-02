@@ -47,6 +47,7 @@ El código implementa un codificador Hamming (7,4) en Verilog, el cual toma una 
 El módulo hamming74 codifica un conjunto de 4 bits de datos en un formato de 7 bits, agregando bits de paridad según el código de Hamming (7,4).
 
 #### 4.3 Diagrama del Codificador Hamming (7,4)
+https://github.com/joan000001/verilog.githttps://github.com/joan000001/verilog.githttps://github.com/joan000001/verilog.githttps://github.com/joan000001/verilog.git
 
 
 #### 5. Testbench

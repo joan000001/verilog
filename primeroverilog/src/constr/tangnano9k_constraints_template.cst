@@ -1,3 +1,25 @@
+IO_LOC  "imput [3]" 83;
+
+IO_LOC  "imput [2]" 84;
+
+IO_LOC  "imput [1]" 85;
+
+IO_LOC  "imput [0]" 86;
+
+IO_LOC  "dataRaw[0]" 42;
+
+IO_LOC  "dataRaw[1]" 51;
+
+IO_LOC  "dataRaw[2]" 53;
+
+IO_LOC  "dataRaw[3]" 54;
+
+IO_LOC  "dataRaw[4]" 55;
+
+IO_LOC  "dataRaw[5]" 56;
+
+IO_LOC  "dataRaw[6]" 57;
+
 IO_LOC  "clk" 52;
 IO_PORT "clk" IO_TYPE=LVCMOS33 PULL_MODE=UP;
 

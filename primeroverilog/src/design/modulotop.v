@@ -1,34 +1,44 @@
+`timescale 1ns / 1ps
+
 module top (
-    input  [6:0] dataRaw,  // Entrada de datos sin procesar
-    output [6:0] led       // LEDs para mostrar datos corregidos
+    input  [3:0] in,              // 4 bits de datos originales
+    input  [6:0] dataRaw,     // Código Hamming con error manual (7 switches)
+    input        selector,        // 0 = usar encoder | 1 = usar switches con error
+    output [6:0] led              // Muestra los 7 bits corregidos
 );
+
     // Señales internas
-    wire [2:0] posError;       // Síndrome calculado
-    wire [6:0] dataCorrecta;   // Datos corregidos
-    wire [6:0] dataCorregido;  // Datos luego de la corrección
+    wire [6:0] dataRaw_from_encoder;
+    wire [6:0] dataRaw_muxed;
+    wire [2:0] posError;
+    wire [6:0] dataCorregido;
+    wire [3:0] dataCorrecta;
 
-    // Señal de prueba para dataRaw (simulación)
-    wire [6:0] test_input;
+    // Codificador Hamming 7,4
+    hamming74 encoder (
+        .in(in),
+        .ou(dataRaw_from_encoder)
+    );
 
-    // Asignamos un valor de prueba a test_input para simular dataRaw
-    assign test_input = 7'b1010101;  // Ejemplo de valor (puedes cambiarlo para probar diferentes entradas)
+    // Multiplexor para elegir entre encoder o switches externos
+    assign dataRaw_muxed = selector ? dataRaw : dataRaw_from_encoder;
 
-    // Instanciamos el módulo de detección de errores
-    hamming_detection hamming_inst (
-        .dataRaw(test_input),  // Usamos test_input para simular dataRaw
+    // Detección de errores
+    hamming_detection detector (
+        .dataRaw(dataRaw_muxed),
         .posError(posError)
     );
-    
-    // Instanciamos el módulo de corrección de errores
-    correccion_error correccion_inst (
-        .dataRaw(test_input),  // Usamos test_input para simular dataRaw
+
+    // Corrección de errores
+    correccion_error corrector (
+        .dataRaw(dataRaw_muxed),
         .sindrome(posError),
         .correccion(dataCorregido),
         .dataCorrecta(dataCorrecta)
     );
-    
-    // Instanciamos el módulo de visualización en LEDs
-    display_7bits_leds display_inst (
+
+    // Mostrar los bits corregidos en LED
+    display_7bits_leds display (
         .coregido(dataCorregido),
         .led(led)
     );

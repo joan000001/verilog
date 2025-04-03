@@ -1,0 +1,142 @@
+$date
+	Wed Apr 02 22:52:10 2025
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ps
+$end
+$scope module top_tb $end
+$var wire 7 ! led [6:0] $end
+$var reg 7 " dataRaw [6:0] $end
+$var reg 4 # in [3:0] $end
+$var reg 1 $ selector $end
+$scope module uut $end
+$var wire 7 % dataRaw [6:0] $end
+$var wire 4 & in [3:0] $end
+$var wire 1 $ selector $end
+$var wire 3 ' posError [2:0] $end
+$var wire 7 ( led [6:0] $end
+$var wire 7 ) dataRaw_muxed [6:0] $end
+$var wire 7 * dataRaw_from_encoder [6:0] $end
+$var wire 7 + dataCorregido [6:0] $end
+$var wire 4 , dataCorrecta [3:0] $end
+$scope module corrector $end
+$var wire 7 - dataRaw [6:0] $end
+$var wire 3 . sindrome [2:0] $end
+$var reg 7 / correccion [6:0] $end
+$var reg 4 0 dataCorrecta [3:0] $end
+$upscope $end
+$scope module detector $end
+$var wire 7 1 dataRaw [6:0] $end
+$var reg 3 2 posError [2:0] $end
+$upscope $end
+$scope module display $end
+$var wire 7 3 coregido [6:0] $end
+$var reg 7 4 led [6:0] $end
+$upscope $end
+$scope module encoder $end
+$var wire 4 5 in [3:0] $end
+$var reg 1 6 d3 $end
+$var reg 1 7 d5 $end
+$var reg 1 8 d6 $end
+$var reg 1 9 d7 $end
+$var reg 7 : ou [6:0] $end
+$var reg 1 ; p1 $end
+$var reg 1 < p2 $end
+$var reg 1 = p4 $end
+$upscope $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+$end
+#0
+$dumpvars
+0=
+1<
+0;
+b1010010 :
+19
+08
+17
+06
+b1010 5
+b1010010 4
+b1010010 3
+b0 2
+b1010010 1
+b1010 0
+b1010010 /
+b0 .
+b1010010 -
+b1010 ,
+b1010010 +
+b1010010 *
+b1010010 )
+b1010010 (
+b0 '
+b1010 &
+bx %
+0$
+b1010 #
+bx "
+b1010010 !
+$end
+#10000
+b1010101 !
+b1010101 (
+b1010101 4
+b1011 ,
+b1011 0
+b1010101 +
+b1010101 /
+b1010101 3
+b1010101 )
+b1010101 -
+b1010101 1
+b1010101 "
+b1010101 %
+1$
+#20000
+b1100110 !
+b1100110 (
+b1100110 4
+b1101 ,
+b1101 0
+b1100110 +
+b1100110 /
+b1100110 3
+b1100110 )
+b1100110 -
+b1100110 1
+b1100110 *
+b1100110 :
+16
+07
+18
+0$
+b1101 #
+b1101 &
+b1101 5
+#30000
+b1100001 !
+b1100001 (
+b1100001 4
+b1100 ,
+b1100 0
+b1100001 +
+b1100001 /
+b1100001 3
+b101 '
+b101 .
+b101 2
+b1110001 )
+b1110001 -
+b1110001 1
+1$
+b1110001 "
+b1110001 %
+#40000
